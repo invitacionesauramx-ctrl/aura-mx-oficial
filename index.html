@@ -3,220 +3,194 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura MX | Invitaciones Digitales de Lujo</title>
+<title>Aura MX | Invitaciones Digitales Premium</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-background:#ffffff;
-color:#222;
 font-family:'Montserrat',sans-serif;
-}
-
-a{text-decoration:none;color:inherit}
-
-header{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
 background:#ffffff;
-border-bottom:1px solid #eee;
-z-index:1000;
+color:#333;
 }
 
-.logo{
+.section{
+padding:90px 8%;
+text-align:center;
+}
+
+.section-title{
 font-family:'Playfair Display',serif;
-font-size:24px;
-letter-spacing:3px;
+font-size:40px;
 color:#c6a34a;
+margin-bottom:20px;
 }
 
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+padding:120px 8%;
+background:#ffffff;
 text-align:center;
-padding:0 20px;
 }
 
 .hero h1{
 font-family:'Playfair Display',serif;
-font-size:58px;
+font-size:48px;
 color:#c6a34a;
 margin-bottom:20px;
 }
 
 .hero p{
-max-width:650px;
-font-size:18px;
+max-width:600px;
+margin:0 auto 30px auto;
 color:#555;
-margin-bottom:20px;
-line-height:1.6;
-}
-
-.social-proof{
-margin-top:20px;
-font-size:14px;
-color:#888;
 }
 
 .btn{
 display:inline-block;
-padding:15px 45px;
-border-radius:50px;
-background:#c6a34a;
-color:#fff;
+padding:14px 40px;
+border:1px solid #c6a34a;
+color:#c6a34a;
+text-decoration:none;
 font-size:14px;
-font-weight:500;
 letter-spacing:1px;
 transition:.3s;
-margin-top:30px;
 }
 
 .btn:hover{
-background:#a8842e;
-transform:translateY(-3px);
-}
-
-.section{padding:120px 8%}
-
-.section-title{
-text-align:center;
-font-family:'Playfair Display',serif;
-font-size:40px;
-color:#c6a34a;
-margin-bottom:80px;
+background:#c6a34a;
+color:#fff;
 }
 
 .catalogo{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:50px;
+gap:30px;
+margin-top:50px;
 }
 
 .card{
-background:#fff;
 border:1px solid #eee;
-padding:50px 35px;
-text-align:center;
-border-radius:25px;
+padding:40px 25px;
 transition:.3s;
-position:relative;
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 40px rgba(0,0,0,0.08);
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,.05);
 }
 
 .card h3{
 font-family:'Playfair Display',serif;
-margin-bottom:15px;
 color:#c6a34a;
-font-size:24px;
-}
-
-.card p{
-font-size:15px;
-color:#666;
-margin-bottom:25px;
-line-height:1.6;
+margin-bottom:15px;
 }
 
 .precio{
-font-size:26px;
+font-size:22px;
+margin:20px 0;
+color:#000;
+font-weight:500;
+}
+
+#countdown{
+font-size:28px;
 font-weight:600;
-margin-bottom:30px;
-}
-
-.badge{
-position:absolute;
-top:-15px;
-right:20px;
-background:#c6a34a;
-color:#fff;
-padding:6px 15px;
-border-radius:20px;
-font-size:12px;
-}
-
-.footer{
-text-align:center;
-padding:50px 20px;
-font-size:13px;
-color:#aaa;
-border-top:1px solid #eee;
-}
-
-@media(max-width:768px){
-.hero h1{font-size:38px}
-.section{padding:90px 6%}
+color:#c6a34a;
+letter-spacing:2px;
+margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">AURA MX</div>
-</header>
-
 <section class="hero">
-<h1>Invitaciones Digitales de Lujo</h1>
-<p>
-Creamos experiencias digitales elegantes con estética blanco + dorado
-para eventos que merecen algo extraordinario.
-</p>
+<h1>Aura MX</h1>
+<p>Invitaciones digitales elegantes con diseño cinematográfico. Eleva la experiencia de tu evento desde el primer clic.</p>
+<a href="#planes" class="btn">Ver Planes</a>
+</section>
 
-<div class="social-proof">
-Más de 100 eventos creados y clientes satisfechos ✨
-</div>
-
-<a href="#planes" class="btn">Descubrir Planes</a>
+<section class="section" style="background:#fafafa;">
+<h2 class="section-title">Cupos Limitados Esta Semana</h2>
+<p>Para mantener la calidad premium, solo aceptamos un número reducido de eventos por semana.</p>
+<div id="countdown">Cargando...</div>
 </section>
 
 <section id="planes" class="section">
-<h2 class="section-title">Elige tu Experiencia</h2>
+<h2 class="section-title">Nuestros Planes</h2>
 
 <div class="catalogo">
 
 <div class="card">
-<h3>Versión Esencial</h3>
-<p>Una experiencia elegante y funcional, pensada para quienes desean mantener la esencia Aura MX de forma accesible.</p>
+<h3>Plan Esencial</h3>
+<p>Invitación digital elegante con botón de confirmación.</p>
 <div class="precio">$200 MXN</div>
-<a href="https://mpago.la/23DGSAR" class="btn">Activar Ahora</a>
+<a href="https://mpago.la/23DGSAR" class="btn">Comprar Ahora</a>
 </div>
 
 <div class="card">
-<div class="badge">Más Popular</div>
-<h3>Plan Intermedio</h3>
-<p>Incluye música personalizada y animaciones suaves que elevan la experiencia visual.</p>
+<h3>Plan Básico</h3>
+<p>Incluye música personalizada y animaciones suaves.</p>
 <div class="precio">$300 MXN</div>
-<a href="https://mpago.la/2cwZByR" class="btn">Activar Ahora</a>
+<a href="https://mpago.la/2cwZByR" class="btn">Comprar Ahora</a>
 </div>
 
 <div class="card">
 <h3>Plan Premium</h3>
-<p>Experiencia completa con animaciones avanzadas, diseño exclusivo y mayor impacto visual.</p>
+<p>Experiencia completa con animaciones avanzadas y diseño exclusivo.</p>
 <div class="precio">$500 MXN</div>
-<a href="https://mpago.la/1xcapFd" class="btn">Activar Ahora</a>
+<a href="https://mpago.la/1xcapFd" class="btn">Comprar Ahora</a>
+</div>
+
+<div class="card">
+<h3>Plan Esencial Solidario</h3>
+<p>Sabemos que cada historia merece celebrarse. Una versión sencilla pero elegante para quienes buscan algo especial sin exceder su presupuesto.</p>
+<div class="precio">$150 MXN</div>
+<a href="https://mpago.la/23DGSAR" class="btn">Solicitar</a>
 </div>
 
 </div>
 </section>
 
-<div class="footer">
-© 2026 Aura MX | Invitaciones Digitales Premium
-</div>
+<section class="section" style="background:#fafafa;">
+<h2 class="section-title">¿Por qué elegir Aura MX?</h2>
+<p>✨ Diseño elegante y moderno<br>
+🎬 Experiencia cinematográfica<br>
+📱 Compatible con cualquier dispositivo<br>
+⚡ Entrega rápida<br>
+🤍 Atención personalizada</p>
+</section>
+
+<script>
+function iniciarContador() {
+    const ahora = new Date();
+    const domingo = new Date();
+    domingo.setDate(ahora.getDate() + (7 - ahora.getDay()));
+    domingo.setHours(23,59,59,999);
+
+    function actualizar() {
+        const ahora = new Date().getTime();
+        const diferencia = domingo - ahora;
+
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+        const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+        const segundos = Math.floor((diferencia / 1000) % 60);
+
+        document.getElementById("countdown").innerHTML =
+        dias + "d " + horas + "h " + minutos + "m " + segundos + "s ";
+
+        if (diferencia < 0) {
+            document.getElementById("countdown").innerHTML = "Nuevos cupos disponibles pronto";
+        }
+    }
+
+    setInterval(actualizar, 1000);
+}
+iniciarContador();
+</script>
 
 </body>
 </html>
