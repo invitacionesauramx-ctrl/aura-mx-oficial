@@ -30,7 +30,6 @@ margin-bottom:20px;
 
 .hero{
 padding:120px 8%;
-background:#ffffff;
 text-align:center;
 }
 
@@ -73,7 +72,14 @@ margin-top:50px;
 .card{
 border:1px solid #eee;
 padding:40px 25px;
-transition:.3s;
+transition:.4s;
+opacity:0;
+transform:translateY(30px);
+}
+
+.card.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 .card:hover{
@@ -84,7 +90,7 @@ box-shadow:0 10px 25px rgba(0,0,0,.05);
 .card h3{
 font-family:'Playfair Display',serif;
 color:#c6a34a;
-margin-bottom:15px;
+margin-bottom:10px;
 }
 
 .precio{
@@ -100,6 +106,41 @@ font-weight:600;
 color:#c6a34a;
 letter-spacing:2px;
 margin-top:20px;
+}
+
+/* Testimonios */
+.testimonial-slider{
+max-width:700px;
+margin:40px auto 0 auto;
+position:relative;
+overflow:hidden;
+}
+
+.testimonial{
+display:none;
+animation:fade 1s ease;
+}
+
+.testimonial.active{
+display:block;
+}
+
+.testimonial img{
+width:80px;
+height:80px;
+border-radius:50%;
+margin-bottom:15px;
+}
+
+.stars{
+color:#c6a34a;
+font-size:18px;
+margin-bottom:10px;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 </style>
 </head>
@@ -165,33 +206,86 @@ margin-top:20px;
 </p>
 </section>
 
+<section class="section">
+<h2 class="section-title">Más de 120 eventos realizados</h2>
+
+<div class="testimonial-slider">
+
+<div class="testimonial active">
+<img src="https://randomuser.me/api/portraits/women/65.jpg">
+<div class="stars">★★★★★</div>
+<h3>Ana Martínez</h3>
+<p style="color:#777;font-size:13px;">ana.m***@gmail.com</p>
+<p>"La invitación superó nuestras expectativas. Elegante y profesional."</p>
+</div>
+
+<div class="testimonial">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<div class="stars">★★★★★</div>
+<h3>Carlos Herrera</h3>
+<p style="color:#777;font-size:13px;">c.her***@hotmail.com</p>
+<p>"Proceso sencillo y resultado espectacular. Totalmente recomendado."</p>
+</div>
+
+<div class="testimonial">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<div class="stars">★★★★★</div>
+<h3>Valeria Gómez</h3>
+<p style="color:#777;font-size:13px;">vale.g***@outlook.com</p>
+<p>"Experiencia premium desde el primer momento. Amamos el resultado."</p>
+</div>
+
+</div>
+</section>
+
 <script>
+/* Animación aparición */
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+}
+});
+});
+cards.forEach(card=>observer.observe(card));
+
+/* Contador */
 function iniciarContador() {
-    const ahora = new Date();
-    const domingo = new Date();
-    domingo.setDate(ahora.getDate() + (7 - ahora.getDay()));
-    domingo.setHours(23,59,59,999);
+const ahora = new Date();
+const domingo = new Date();
+domingo.setDate(ahora.getDate() + (7 - ahora.getDay()));
+domingo.setHours(23,59,59,999);
 
-    function actualizar() {
-        const ahora = new Date().getTime();
-        const diferencia = domingo - ahora;
+function actualizar() {
+const ahora = new Date().getTime();
+const diferencia = domingo - ahora;
 
-        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-        const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
-        const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
-        const segundos = Math.floor((diferencia / 1000) % 60);
+const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+const segundos = Math.floor((diferencia / 1000) % 60);
 
-        document.getElementById("countdown").innerHTML =
-        dias + "d " + horas + "h " + minutos + "m " + segundos + "s ";
+document.getElementById("countdown").innerHTML =
+dias + "d " + horas + "h " + minutos + "m " + segundos + "s ";
 
-        if (diferencia < 0) {
-            document.getElementById("countdown").innerHTML = "Nuevos cupos disponibles pronto";
-        }
-    }
-
-    setInterval(actualizar, 1000);
+if (diferencia < 0) {
+document.getElementById("countdown").innerHTML = "Nuevos cupos disponibles pronto";
+}
+}
+setInterval(actualizar, 1000);
 }
 iniciarContador();
+
+/* Carrusel automático */
+let index = 0;
+const testimonials = document.querySelectorAll('.testimonial');
+
+setInterval(()=>{
+testimonials[index].classList.remove('active');
+index = (index + 1) % testimonials.length;
+testimonials[index].classList.add('active');
+},4000);
 </script>
 
 </body>
