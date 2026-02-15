@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura MX | Invitaciones Digitales Premium</title>
+<title>Aura MX | Invitaciones Digitales de Lujo</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -14,7 +14,6 @@ body{
 background:#ffffff;
 color:#222;
 font-family:'Montserrat',sans-serif;
-overflow-x:hidden;
 }
 
 a{text-decoration:none;color:inherit}
@@ -39,14 +38,6 @@ letter-spacing:3px;
 color:#c6a34a;
 }
 
-nav a{
-margin-left:30px;
-font-size:14px;
-transition:.3s;
-}
-
-nav a:hover{color:#c6a34a}
-
 .hero{
 height:100vh;
 display:flex;
@@ -59,93 +50,109 @@ padding:0 20px;
 
 .hero h1{
 font-family:'Playfair Display',serif;
-font-size:54px;
+font-size:60px;
 color:#c6a34a;
 margin-bottom:20px;
 }
 
 .hero p{
-max-width:600px;
-font-size:16px;
+max-width:650px;
+font-size:18px;
 color:#555;
 margin-bottom:40px;
+line-height:1.6;
 }
 
 .btn{
 display:inline-block;
-padding:14px 40px;
-border-radius:40px;
+padding:15px 45px;
+border-radius:50px;
 background:#c6a34a;
 color:#fff;
 font-size:14px;
+font-weight:500;
+letter-spacing:1px;
 transition:.3s;
 }
 
 .btn:hover{
 background:#a8842e;
+transform:translateY(-3px);
 }
 
-.section{padding:100px 8%}
+.section{padding:120px 8%}
 
 .section-title{
 text-align:center;
 font-family:'Playfair Display',serif;
-font-size:36px;
+font-size:40px;
 color:#c6a34a;
-margin-bottom:60px;
+margin-bottom:80px;
 }
 
 .catalogo{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:40px;
+gap:50px;
 }
 
 .card{
 background:#fff;
 border:1px solid #eee;
-padding:40px 30px;
+padding:50px 35px;
 text-align:center;
+border-radius:25px;
 transition:.3s;
-border-radius:20px;
+position:relative;
 }
 
 .card:hover{
-transform:translateY(-8px);
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
 }
 
 .card h3{
 font-family:'Playfair Display',serif;
 margin-bottom:15px;
 color:#c6a34a;
-font-size:24px;
+font-size:26px;
 }
 
 .card p{
-font-size:14px;
+font-size:15px;
 color:#666;
-margin-bottom:20px;
+margin-bottom:25px;
+line-height:1.6;
 }
 
 .precio{
-font-size:22px;
+font-size:26px;
 font-weight:600;
-margin-bottom:25px;
-color:#222;
+margin-bottom:30px;
+}
+
+.badge{
+position:absolute;
+top:-15px;
+right:20px;
+background:#c6a34a;
+color:#fff;
+padding:6px 15px;
+border-radius:20px;
+font-size:12px;
 }
 
 .footer{
 text-align:center;
-padding:40px 20px;
+padding:50px 20px;
 font-size:13px;
 color:#aaa;
 border-top:1px solid #eee;
 }
 
 @media(max-width:768px){
-.hero h1{font-size:36px}
-.section{padding:80px 6%}
+.hero h1{font-size:38px}
+.section{padding:90px 6%}
 }
 </style>
 </head>
@@ -154,41 +161,42 @@ border-top:1px solid #eee;
 
 <header>
 <div class="logo">AURA MX</div>
-<nav>
-<a href="#planes">Planes</a>
-</nav>
 </header>
 
 <section class="hero">
-<h1>Invitaciones Digitales Elegantes</h1>
-<p>Diseño blanco + dorado con estética premium para eventos especiales.</p>
-<a href="#planes" class="btn">Ver Planes</a>
+<h1>Invitaciones Digitales de Lujo</h1>
+<p>
+Creamos experiencias digitales elegantes con estética blanco + dorado
+para eventos que merecen algo extraordinario.
+</p>
+<a href="#planes" class="btn">Descubrir Planes</a>
 </section>
 
 <section id="planes" class="section">
-<h2 class="section-title">Nuestros Planes</h2>
+<h2 class="section-title">Elige tu Experiencia</h2>
 
 <div class="catalogo">
 
 <div class="card">
 <h3>Plan Esencial</h3>
-<p>Invitación digital elegante con botón de confirmación y diseño profesional.</p>
+<p>Invitación digital elegante con botón de confirmación y diseño profesional lista para compartir.</p>
 <div class="precio">$200 MXN</div>
-<a href="https://mpago.la/23DGSAR" class="btn">Comprar Ahora</a>
+<a href="https://mpago.la/23DGSAR" class="btn">Activar Ahora</a>
 </div>
 
 <div class="card">
+<div class="badge">Más Popular</div>
 <h3>Plan Básico</h3>
 <p>Incluye música personalizada ,cuenta regresiva ,boton de confirmasion de asistencia y animaciones suaves para mayor impacto.</p>
 <div class="precio">$300 MXN</div>
-<a href="https://mpago.la/2cwZByR" class="btn">Comprar Ahora</a>
+<a href="https://mpago.la/2cwZByR" class="btn">Activar Ahora</a>
 </div>
 
 <div class="card">
 <h3>Plan Premium</h3>
 <p>Experiencia completa animacion con sobre de entrada con cuenta regresiva,boton de confirmacion de asistencia y ubicacion gps,animaciones,mensaje .</p>
 <div class="precio">$500 MXN</div>
-<a href="https://mpago.la/1xcapFd" class="btn">Comprar Ahora</a>
+<a href="https://mpago.la/1xcapFd" class="btn">Activar Ahora</a>
 </div>
 
 </div>
