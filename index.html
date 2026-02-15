@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura MX | Invitaciones Cinematográficas</title>
+<title>Aura MX | Invitaciones Digitales</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -17,13 +17,13 @@ color:#111;
 overflow-x:hidden;
 }
 
+h1,h2,h3{
+font-family:'Playfair Display',serif;
+}
+
 section{
 padding:80px 10%;
 text-align:center;
-}
-
-h1,h2{
-font-family:'Playfair Display',serif;
 }
 
 /* HERO */
@@ -34,11 +34,15 @@ padding:100px 10%;
 }
 
 .hero h1{
-font-size:38px;
-margin-bottom:15px;
+font-size:40px;
+margin-bottom:20px;
 }
 
-/* BOTON */
+.hero p{
+opacity:.8;
+}
+
+/* BOTONES */
 .btn{
 background:gold;
 color:#000;
@@ -68,12 +72,6 @@ background:#fff;
 padding:30px;
 border-radius:15px;
 box-shadow:0 10px 25px rgba(0,0,0,.1);
-animation:fadeIn .6s ease;
-}
-
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(20px);}
-to{opacity:1; transform:translateY(0);}
 }
 
 .testimonio img{
@@ -87,6 +85,7 @@ margin-bottom:15px;
 .estrellas{
 color:gold;
 margin-bottom:10px;
+font-size:18px;
 }
 
 /* BOTON REFERENCIA */
@@ -101,7 +100,7 @@ font-weight:600;
 }
 
 /* MODAL */
-.modal{
+.modal-ref{
 display:none;
 position:fixed;
 top:0;
@@ -113,15 +112,16 @@ justify-content:center;
 align-items:center;
 }
 
-.modal-content{
+.modal-content-ref{
 background:#fff;
 padding:30px;
 border-radius:15px;
 width:300px;
+text-align:center;
 }
 
-.modal-content input,
-.modal-content textarea{
+.modal-content-ref input,
+.modal-content-ref textarea{
 width:100%;
 margin:10px 0;
 padding:10px;
@@ -129,7 +129,7 @@ border-radius:8px;
 border:1px solid #ddd;
 }
 
-.modal-content button{
+.modal-content-ref button{
 background:gold;
 border:none;
 padding:10px 20px;
@@ -137,7 +137,7 @@ border-radius:20px;
 cursor:pointer;
 }
 
-.close{
+.closeRef{
 cursor:pointer;
 display:block;
 margin-top:10px;
@@ -158,6 +158,7 @@ font-weight:bold;
 box-shadow:0 5px 20px rgba(0,0,0,.3);
 }
 
+/* FOOTER */
 footer{
 background:#000;
 color:#fff;
@@ -172,33 +173,56 @@ margin-top:60px;
 
 <section class="hero">
 <h1>Invitaciones Digitales Cinematográficas</h1>
-<p>Más de 120 eventos realizados ✨</p>
+<p>Elegancia, tecnología y emoción en un solo enlace.</p>
 <a href="#testimonios" class="btn">Ver Opiniones</a>
 </section>
 
 <section id="testimonios">
 <h2>Lo que dicen nuestros clientes</h2>
+<p style="margin-top:10px;opacity:.7;">Más de 120 eventos realizados ✨</p>
 
 <button id="openForm" class="btn-ref">Deja tu referencia ✨</button>
 
 <div class="testimonios-wrapper">
-<div class="testimonios" id="slider"></div>
+<div class="testimonios" id="slider">
+
+<div class="testimonio">
+<img src="https://i.imgur.com/6VBx3io.png">
+<div class="estrellas">⭐⭐⭐⭐⭐</div>
+<h4>María López</h4>
+<p>Quedamos encantados con nuestra invitación. Súper elegante y profesional.</p>
 </div>
 
+<div class="testimonio">
+<img src="https://i.imgur.com/6VBx3io.png">
+<div class="estrellas">⭐⭐⭐⭐⭐</div>
+<h4>Daniel García</h4>
+<p>El diseño fue increíble. Todos nuestros invitados quedaron impresionados.</p>
+</div>
+
+<div class="testimonio">
+<img src="https://i.imgur.com/6VBx3io.png">
+<div class="estrellas">⭐⭐⭐⭐⭐</div>
+<h4>Ana Torres</h4>
+<p>Definitivamente volvería a contratar. Excelente atención y calidad.</p>
+</div>
+
+</div>
+</div>
 </section>
 
 <footer>
-© 2026 Aura MX
+© 2026 Aura MX — Invitaciones Digitales Cinematográficas
 </footer>
 
 <!-- MODAL -->
-<div id="modal" class="modal">
-<div class="modal-content">
-<h3>Tu experiencia</h3>
-<input type="text" id="nombre" placeholder="Tu nombre">
-<textarea id="mensaje" placeholder="Escribe tu opinión..."></textarea>
-<button onclick="guardar()">Enviar</button>
-<span class="close">&times;</span>
+<div id="refModal" class="modal-ref">
+<div class="modal-content-ref">
+<h3>Deja tu referencia</h3>
+<input type="text" id="nombreRef" placeholder="Tu nombre">
+<textarea id="mensajeRef" placeholder="Escribe tu experiencia..."></textarea>
+<button onclick="guardarReferencia()">Enviar</button>
+<span class="closeRef">&times;</span>
 </div>
 </div>
 
@@ -207,65 +231,47 @@ WhatsApp
 </a>
 
 <script>
+let index=0;
 const slider=document.getElementById("slider");
 
-/* Cargar guardados */
-function cargar(){
-let refs=JSON.parse(localStorage.getItem("referencias"))||[];
-refs.forEach(r=>{
-crearCard(r.nombre,r.mensaje);
-});
+function mover(){
+index++;
+if(index>slider.children.length-2){
+index=0;
 }
-cargar();
-
-/* Crear tarjeta */
-function crearCard(nombre,mensaje){
-const div=document.createElement("div");
-div.classList.add("testimonio");
-div.innerHTML=`
-<img src="https://i.imgur.com/6VBx3io.png">
-<div class="estrellas">⭐⭐⭐⭐⭐</div>
-<h4>${nombre}</h4>
-<p>${mensaje}</p>
-`;
-slider.appendChild(div);
+slider.style.transform=`translateX(-${index*50}%)`;
 }
+setInterval(mover,3000);
 
-/* Guardar */
-function guardar(){
-const nombre=document.getElementById("nombre").value;
-const mensaje=document.getElementById("mensaje").value;
+/* MODAL */
+const modal=document.getElementById("refModal");
+document.getElementById("openForm").onclick=()=>modal.style.display="flex";
+document.querySelector(".closeRef").onclick=()=>modal.style.display="none";
+
+function guardarReferencia(){
+const nombre=document.getElementById("nombreRef").value;
+const mensaje=document.getElementById("mensajeRef").value;
 
 if(nombre===""||mensaje===""){
 alert("Completa los campos");
 return;
 }
 
-let refs=JSON.parse(localStorage.getItem("referencias"))||[];
-refs.push({nombre,mensaje});
-localStorage.setItem("referencias",JSON.stringify(refs));
+const nuevo=document.createElement("div");
+nuevo.classList.add("testimonio");
+nuevo.innerHTML=`
+<img src="https://i.imgur.com/6VBx3io.png">
+<div class="estrellas">⭐⭐⭐⭐⭐</div>
+<h4>${nombre}</h4>
+<p>${mensaje}</p>
+`;
 
-crearCard(nombre,mensaje);
+slider.appendChild(nuevo);
 
-document.getElementById("nombre").value="";
-document.getElementById("mensaje").value="";
+document.getElementById("nombreRef").value="";
+document.getElementById("mensajeRef").value="";
 modal.style.display="none";
 }
-
-/* Carrusel infinito */
-let index=0;
-function mover(){
-if(slider.children.length<2)return;
-index++;
-if(index>slider.children.length-2){index=0;}
-slider.style.transform=`translateX(-${index*50}%)`;
-}
-setInterval(mover,3000);
-
-/* Modal */
-const modal=document.getElementById("modal");
-document.getElementById("openForm").onclick=()=>modal.style.display="flex";
-document.querySelector(".close").onclick=()=>modal.style.display="none";
 </script>
 
 </body>
