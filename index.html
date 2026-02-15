@@ -3,54 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura MX | Invitaciones Cinematográficas</title>
+<title>Aura MX | Invitaciones Digitales Cinematográficas</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
+font-family:'Poppins',sans-serif;
 background:#000;
 color:#fff;
-font-family:'Montserrat',sans-serif;
 overflow-x:hidden;
-position:relative;
 }
 
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
+h1,h2,h3{
+font-family:'Playfair Display',serif;
 }
 
 section{
-padding:100px 20px;
+padding:80px 20px;
 text-align:center;
-opacity:0;
-transform:translateY(60px);
-transition:1.2s ease;
 }
 
-section.visible{
-opacity:1;
-transform:translateY(0);
-}
-
-h1,h2{
-font-family:'Playfair Display',serif;
-background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
-background-size:200% auto;
-color:transparent;
--webkit-background-clip:text;
-animation:shine 6s linear infinite;
-margin-bottom:20px;
-}
-
-@keyframes shine{
-to{background-position:200% center;}
-}
+/* HERO */
 
 .hero{
 height:100vh;
@@ -58,294 +34,254 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+background:#000;
 }
 
 .hero h1{
-font-size:50px;
-letter-spacing:4px;
+font-size:48px;
+max-width:900px;
+line-height:1.2;
+}
+
+.hero p{
+margin-top:20px;
+color:#d4af37;
+font-size:18px;
 }
 
 .btn{
 display:inline-block;
-margin-top:20px;
-padding:14px 40px;
-border:1px solid #d4af37;
-color:#d4af37;
+margin-top:30px;
+padding:15px 40px;
+background:#d4af37;
+color:#000;
+border-radius:50px;
 text-decoration:none;
-transition:.4s;
-letter-spacing:1px;
+font-weight:600;
+transition:0.3s;
 }
 
 .btn:hover{
-background:#d4af37;
-color:#000;
-box-shadow:0 0 20px #d4af37;
+transform:scale(1.05);
+}
+
+/* PLANES */
+
+#planes{
+background:#111;
 }
 
 .plans{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
-max-width:1100px;
-margin:auto;
+margin-top:40px;
 }
 
 .card{
-border:1px solid #222;
-padding:35px;
-background:rgba(20,20,20,.9);
-transition:.5s;
+background:#000;
+border:1px solid #d4af37;
+padding:30px;
+border-radius:20px;
+transition:0.4s;
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.02);
-border:1px solid #d4af37;
-box-shadow:0 0 25px rgba(212,175,55,.4);
+transform:translateY(-10px);
 }
 
 .price{
 font-size:30px;
-margin:15px 0;
 color:#d4af37;
+margin:15px 0;
 }
 
 .features{
-margin-top:15px;
 list-style:none;
-opacity:.85;
-line-height:1.7;
-font-size:14px;
+margin:20px 0;
 }
 
-.counter{
-font-size:32px;
-color:#d4af37;
-margin-top:20px;
+.features li{
+margin:10px 0;
 }
 
-/* ===== TESTIMONIOS NUEVOS ===== */
+/* TESTIMONIOS */
 
-.testimonials-wrapper{
+#opiniones{
+background:#f5f5f5;
+color:#000;
 overflow:hidden;
-max-width:1000px;
-margin:auto;
 }
 
-.testimonials{
+.carousel{
 display:flex;
 gap:30px;
-transition:transform .6s ease;
+animation:scroll 20s linear infinite;
+margin-top:40px;
 }
 
-.testimonial{
-min-width:45%;
-background:rgba(20,20,20,.9);
-border:1px solid #222;
+.testimonio{
+background:#fff;
+min-width:300px;
 padding:25px;
-font-style:italic;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+.testimonio img{
+width:70px;
+height:70px;
+border-radius:50%;
+margin-bottom:15px;
 }
 
 .stars{
 color:#d4af37;
 margin-bottom:10px;
-font-size:18px;
 }
 
-.btn-ref{
-display:inline-block;
-margin:25px 0;
-padding:12px 35px;
-border:1px solid #d4af37;
-color:#d4af37;
-background:transparent;
-cursor:pointer;
-transition:.4s;
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
 }
 
-.btn-ref:hover{
-background:#d4af37;
-color:#000;
-}
-
-/* Modal */
-
-.modal-ref{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.7);
-justify-content:center;
-align-items:center;
-z-index:1000;
-}
-
-.modal-content-ref{
-background:#111;
-border:1px solid #d4af37;
-padding:30px;
-width:320px;
-}
-
-.modal-content-ref input,
-.modal-content-ref textarea{
-width:100%;
-margin:10px 0;
-padding:10px;
-background:#000;
-border:1px solid #333;
-color:#fff;
-}
-
-.modal-content-ref button{
-background:#d4af37;
-border:none;
-padding:10px 20px;
-cursor:pointer;
-}
-
-.closeRef{
-cursor:pointer;
-display:block;
-margin-top:10px;
-color:#d4af37;
-}
-
-footer{
-padding:40px;
-text-align:center;
-font-size:13px;
-opacity:.6;
-}
+/* BOTÓN WHATSAPP */
 
 .whatsapp{
 position:fixed;
-bottom:25px;
-right:25px;
+bottom:20px;
+right:20px;
 background:#d4af37;
 color:#000;
-width:65px;
-height:65px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
+padding:15px 25px;
+border-radius:50px;
 text-decoration:none;
-box-shadow:0 0 25px rgba(212,175,55,.7);
-z-index:999;
-transition:.3s;
+font-weight:600;
+box-shadow:0 0 20px rgba(212,175,55,0.6);
 }
 
-.whatsapp:hover{
-transform:scale(1.1);
+/* RESPONSIVE */
+
+@media(max-width:768px){
+.hero h1{font-size:32px;}
+.carousel{animation-duration:30s;}
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
-
-<section class="hero visible">
-<h1>AURA MX</h1>
-<p>Invitaciones digitales cinematográficas que dejan huella</p>
+<!-- HERO -->
+<section class="hero">
+<h1>Invitaciones Digitales Cinematográficas</h1>
+<p>Más de 120 eventos realizados ✨</p>
 <a href="#planes" class="btn">Ver Planes</a>
 </section>
 
-<section>
-<h2>Lo que dicen nuestros clientes</h2>
+<!-- PLANES -->
+<section id="planes">
+<h2>Nuestros Planes</h2>
 
-<button id="openRef" class="btn-ref">Deja tu referencia ✨</button>
+<div class="plans">
 
-<div class="testimonials-wrapper">
-<div class="testimonials" id="slider">
-
-<div class="testimonial">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-“Quedó hermosa nuestra invitación. Súper elegante y fácil de compartir.”<br>
-— maria.garcia@email.com
+<div class="card">
+<h3>Esencial Solidario</h3>
+<div class="price">$150</div>
+<p>Ideal para quienes desean una invitación elegante y funcional, manteniendo una inversión accesible sin sacrificar estilo.</p>
+<ul class="features">
+<li>Diseño elegante</li>
+<li>Link listo para compartir</li>
+</ul>
+<a href="https://mpago.la/2tHuvkr" class="btn">Comprar</a>
 </div>
 
-<div class="testimonial">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-“La animación quedó mágica, parecía tráiler de película.”<br>
-— paola.navarro@email.com
+<div class="card">
+<h3>Esencial</h3>
+<div class="price">$200</div>
+<ul class="features">
+<li>Música integrada</li>
+<li>Confirmación de asistencia</li>
+</ul>
+<a href="https://mpago.la/23DGSAR" class="btn">Comprar</a>
 </div>
 
-<div class="testimonial">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-“Todo fue súper profesional y muy fácil de compartir.”<br>
-— ricardo.silva@email.com
+<div class="card">
+<h3>Básico</h3>
+<div class="price">$300</div>
+<ul class="features">
+<li>Galería de fotos</li>
+<li>Contador regresivo</li>
+</ul>
+<a href="https://mpago.la/2cwZByR" class="btn">Comprar</a>
+</div>
+
+<div class="card">
+<h3>Premium</h3>
+<div class="price">$500</div>
+<ul class="features">
+<li>Experiencia cinematográfica</li>
+<li>Animaciones avanzadas</li>
+</ul>
+<a href="https://mpago.la/1xcapFd" class="btn">Comprar</a>
 </div>
 
 </div>
-</div>
-
 </section>
 
-<footer>
-© 2026 Aura MX — Invitaciones Digitales Cinematográficas
-</footer>
+<!-- TESTIMONIOS -->
+<section id="opiniones">
+<h2>Lo que dicen nuestros clientes</h2>
 
-<a href="https://wa.me/523341024243" target="_blank" class="whatsapp">💬</a>
+<a href="#" class="btn" onclick="agregarTestimonio()">Deja tu referencia ✨</a>
 
-<!-- MODAL -->
-<div id="refModal" class="modal-ref">
-<div class="modal-content-ref">
-<h3>Tu experiencia</h3>
-<input type="text" id="refNombre" placeholder="Tu nombre">
-<textarea id="refMensaje" placeholder="Escribe tu opinión..."></textarea>
-<button onclick="guardarReferencia()">Enviar</button>
-<span class="closeRef">Cerrar</span>
+<div class="carousel" id="carousel">
+
+<div class="testimonio">
+<img src="https://i.pravatar.cc/100?img=1">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>La invitación quedó hermosa, superó nuestras expectativas.</p>
 </div>
+
+<div class="testimonio">
+<img src="https://i.pravatar.cc/100?img=2">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>Servicio rápido y muy profesional.</p>
 </div>
+
+<div class="testimonio">
+<img src="https://i.pravatar.cc/100?img=3">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>Todos mis invitados quedaron impresionados.</p>
+</div>
+
+<div class="testimonio">
+<img src="https://i.pravatar.cc/100?img=4">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>Definitivamente volvería a contratar.</p>
+</div>
+
+</div>
+</section>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/523341024243" class="whatsapp" target="_blank">
+WhatsApp
+</a>
 
 <script>
-
-// Carrusel infinito
-let index=0;
-const slider=document.getElementById("slider");
-
-function mover(){
-if(slider.children.length<2)return;
-index++;
-if(index>slider.children.length-2){index=0;}
-slider.style.transform=`translateX(-${index*50}%)`;
+function agregarTestimonio(){
+let texto=prompt("Escribe tu opinión:");
+if(texto){
+let nuevo=document.createElement("div");
+nuevo.className="testimonio";
+nuevo.innerHTML=`
+<img src="https://i.pravatar.cc/100">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>${texto}</p>
+`;
+document.getElementById("carousel").appendChild(nuevo);
 }
-setInterval(mover,3000);
-
-// Modal
-const refModal=document.getElementById("refModal");
-document.getElementById("openRef").onclick=()=>refModal.style.display="flex";
-document.querySelector(".closeRef").onclick=()=>refModal.style.display="none";
-
-// Guardar referencias
-function guardarReferencia(){
-const nombre=document.getElementById("refNombre").value;
-const mensaje=document.getElementById("refMensaje").value;
-
-if(nombre===""||mensaje===""){
-alert("Completa los campos");
-return;
 }
-
-let refs=JSON.parse(localStorage.getItem("auraRefs"))||[];
-refs.push({nombre,mensaje});
-localStorage.setItem("auraRefs",JSON.stringify(refs));
-
-const div=document.createElement("div");
-div.classList.add("testimonial");
-div.innerHTML=`<div class="stars">⭐⭐⭐⭐⭐</div>"${mensaje}"<br>— ${nombre}`;
-slider.appendChild(div);
-
-document.getElementById("refNombre").value="";
-document.getElementById("refMensaje").value="";
-refModal.style.display="none";
-}
-
 </script>
 
 </body>
