@@ -5,112 +5,198 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aura MX | Invitaciones Digitales Premium</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+background:#ffffff;
+color:#222;
+font-family:'Montserrat',sans-serif;
+overflow-x:hidden;
+}
+
+a{text-decoration:none;color:inherit}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#ffffff;
+border-bottom:1px solid #eee;
+z-index:1000;
+}
+
+.logo{
+font-family:'Playfair Display',serif;
+font-size:24px;
+letter-spacing:3px;
+color:#c6a34a;
+}
+
+nav a{
+margin-left:30px;
+font-size:14px;
+transition:.3s;
+}
+
+nav a:hover{color:#c6a34a}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:54px;
+color:#c6a34a;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:600px;
+font-size:16px;
+color:#555;
+margin-bottom:40px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 40px;
+border-radius:40px;
+background:#c6a34a;
+color:#fff;
+font-size:14px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#a8842e;
+}
+
+.section{padding:100px 8%}
+
+.section-title{
+text-align:center;
+font-family:'Playfair Display',serif;
+font-size:36px;
+color:#c6a34a;
+margin-bottom:60px;
+}
+
+.catalogo{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+}
+
+.card{
+background:#fff;
+border:1px solid #eee;
+padding:40px 30px;
+text-align:center;
+transition:.3s;
+border-radius:20px;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card h3{
+font-family:'Playfair Display',serif;
+margin-bottom:15px;
+color:#c6a34a;
+font-size:24px;
+}
+
+.card p{
+font-size:14px;
+color:#666;
+margin-bottom:20px;
+}
+
+.precio{
+font-size:22px;
+font-weight:600;
+margin-bottom:25px;
+color:#222;
+}
+
+.footer{
+text-align:center;
+padding:40px 20px;
+font-size:13px;
+color:#aaa;
+border-top:1px solid #eee;
+}
+
+@media(max-width:768px){
+.hero h1{font-size:36px}
+.section{padding:80px 6%}
+}
+</style>
 </head>
 
 <body>
 
-<header class="header">
-  <div class="logo">AURA MX</div>
-  <nav>
-    <a href="#modelos">Modelos</a>
-    <a href="#planes">Planes</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+<header>
+<div class="logo">AURA MX</div>
+<nav>
+<a href="#planes">Planes</a>
+</nav>
 </header>
 
 <section class="hero">
-  <h1>Invitaciones Digitales de Alta Gama</h1>
-  <p>Diseños elegantes y experiencias digitales que impactan.</p>
-  <a href="#planes" class="btn-primary">Ver Planes</a>
+<h1>Invitaciones Digitales Elegantes</h1>
+<p>Diseño blanco + dorado con estética premium para eventos especiales.</p>
+<a href="#planes" class="btn">Ver Planes</a>
 </section>
 
-<section id="modelos" class="section">
-  <h2 class="section-title">Modelos Destacados</h2>
+<section id="planes" class="section">
+<h2 class="section-title">Nuestros Planes</h2>
 
-  <div class="cards">
-    <div class="card">
-      <h3>Modelo Elegance XV</h3>
-      <p>Diseño sofisticado con animaciones suaves.</p>
-      <a href="#" class="btn-outline">Ver Demo</a>
-    </div>
+<div class="catalogo">
 
-    <div class="card">
-      <h3>Modelo Wedding Gold</h3>
-      <p>Estética moderna con detalles dorados.</p>
-      <a href="#" class="btn-outline">Ver Demo</a>
-    </div>
-  </div>
+<div class="card">
+<h3>Plan Esencial</h3>
+<p>Invitación digital elegante con botón de confirmación y diseño profesional.</p>
+<div class="precio">$200 MXN</div>
+<a href="https://mpago.la/23DGSAR" class="btn">Comprar Ahora</a>
+</div>
+
+<div class="card">
+<h3>Plan Básico</h3>
+<p>Incluye música personalizada y animaciones suaves para mayor impacto.</p>
+<div class="precio">$300 MXN</div>
+<a href="https://mpago.la/2cwZByR" class="btn">Comprar Ahora</a>
+</div>
+
+<div class="card">
+<h3>Plan Premium</h3>
+<p>Experiencia completa con animaciones avanzadas y diseño exclusivo.</p>
+<div class="precio">$500 MXN</div>
+<a href="https://mpago.la/1xcapFd" class="btn">Comprar Ahora</a>
+</div>
+
+</div>
 </section>
 
-<section id="planes" class="section gold-bg">
-  <h2 class="section-title">Planes Disponibles</h2>
-
-  <div class="cards">
-
-    <div class="plan">
-      <h3>Esencial</h3>
-      <p class="price">$499 MXN</p>
-      <ul>
-        <li>Diseño personalizado</li>
-        <li>Música integrada</li>
-        <li>Confirmación de asistencia</li>
-      </ul>
-      <a href="#" class="btn-primary dark-btn">Activar</a>
-    </div>
-
-    <div class="plan featured">
-      <h3>Premium</h3>
-      <p class="price">$899 MXN</p>
-      <ul>
-        <li>Todo lo anterior</li>
-        <li>Galería de fotos</li>
-        <li>Cuenta regresiva</li>
-        <li>Ubicación interactiva</li>
-      </ul>
-      <a href="#" class="btn-primary dark-btn">Activar</a>
-    </div>
-
-    <div class="plan">
-      <h3>Elite</h3>
-      <p class="price">$1,499 MXN</p>
-      <ul>
-        <li>Todo lo anterior</li>
-        <li>Video cinematográfico</li>
-        <li>Dominio personalizado</li>
-      </ul>
-      <a href="#" class="btn-primary dark-btn">Activar</a>
-    </div>
-
-  </div>
-</section>
-
-<section id="contacto" class="section">
-  <h2 class="section-title">Contacto</h2>
-  <p class="center-text">
-    ¿Quieres más información? Escríbenos directamente.
-  </p>
-  <div class="center">
-    <a href="https://wa.me/523341024243?text=Hola%20quiero%20información%20sobre%20las%20invitaciones%20digitales"
-       class="btn-primary">
-       Contactar Ahora
-    </a>
-  </div>
-</section>
-
-<footer>
-  © 2026 Aura MX — Invitaciones Digitales Premium
-</footer>
-
-<!-- Botón flotante WhatsApp -->
-<a href="https://wa.me/523341024243?text=Hola%20quiero%20información%20sobre%20las%20invitaciones%20digitales"
-   class="whatsapp-float"
-   target="_blank">
-   💬
-</a>
-
-<script src="js/script.js"></script>
+<div class="footer">
+© 2026 Aura MX | Invitaciones Digitales Premium
+</div>
 
 </body>
 </html>
