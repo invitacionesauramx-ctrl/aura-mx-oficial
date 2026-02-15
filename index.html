@@ -28,6 +28,13 @@ color:#d4af37;
 margin-bottom:20px;
 }
 
+.top-proof{
+font-size:14px;
+opacity:.8;
+margin-bottom:40px;
+letter-spacing:1px;
+}
+
 .hero{
 height:100vh;
 display:flex;
@@ -76,23 +83,6 @@ border:1px solid #d4af37;
 box-shadow:0 0 25px rgba(212,175,55,.4);
 }
 
-.popular{
-border:2px solid #d4af37;
-transform:scale(1.05);
-box-shadow:0 0 35px rgba(212,175,55,.6);
-}
-
-.badge{
-position:absolute;
-top:-15px;
-right:20px;
-background:#d4af37;
-color:#000;
-padding:5px 12px;
-font-size:12px;
-font-weight:600;
-}
-
 .price{
 font-size:28px;
 color:#d4af37;
@@ -117,6 +107,52 @@ content:"✔ ";
 color:#d4af37;
 }
 
+/* PLAN MÁS VENDIDO */
+
+.popular{
+border:2px solid #d4af37;
+transform:scale(1.07);
+box-shadow:0 0 35px rgba(212,175,55,.6);
+animation:glow 3s infinite alternate;
+}
+
+@keyframes glow{
+from{box-shadow:0 0 20px rgba(212,175,55,.3);}
+to{box-shadow:0 0 50px rgba(212,175,55,.8);}
+}
+
+.badge{
+position:absolute;
+top:-15px;
+right:20px;
+background:#d4af37;
+color:#000;
+padding:5px 12px;
+font-size:12px;
+font-weight:600;
+}
+
+.popular-btn{
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(212,175,55,.6);}
+70%{box-shadow:0 0 0 15px rgba(212,175,55,0);}
+100%{box-shadow:0 0 0 0 rgba(212,175,55,0);}
+}
+
+.subtext{
+font-size:12px;
+text-align:center;
+margin-top:8px;
+opacity:.7;
+}
+
+.solidario{
+opacity:.75;
+}
+
 footer{
 padding:40px;
 text-align:center;
@@ -136,10 +172,13 @@ opacity:.6;
 
 <section id="planes">
 <h2>Nuestros Planes</h2>
+<div class="top-proof">
+Más de 120 eventos realizados ⭐⭐⭐⭐⭐
+</div>
 
 <div class="plans">
 
-<div class="card">
+<div class="card solidario">
 <h3>Plan Esencial Solidario</h3>
 <div class="price">$150 MXN</div>
 <ul class="features">
@@ -149,7 +188,7 @@ opacity:.6;
 <li>Entrega en 48 horas</li>
 </ul>
 <div style="text-align:center;">
-<a href="https://mpago.la/2tHuvkr" class="btn">Comprar</a>
+<a href="https://mpago.la/2tHuvkr" class="btn">Solicitar</a>
 </div>
 </div>
 
@@ -180,7 +219,8 @@ opacity:.6;
 <li>Diseño más impactante</li>
 </ul>
 <div style="text-align:center;">
-<a href="https://mpago.la/2cwZByR" class="btn">Elegir Este</a>
+<a href="https://mpago.la/2cwZByR" class="btn popular-btn">Elegir Este</a>
+<div class="subtext">Mejor relación precio-valor</div>
 </div>
 </div>
 
