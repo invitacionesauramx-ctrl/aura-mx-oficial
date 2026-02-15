@@ -3,289 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura MX | Invitaciones Digitales Premium</title>
+<title>Aura MX | Invitaciones Cinematográficas</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-font-family:'Montserrat',sans-serif;
-background:#ffffff;
-color:#333;
-}
-
-.section{
-padding:90px 8%;
-text-align:center;
-}
-
-.section-title{
-font-family:'Playfair Display',serif;
-font-size:40px;
-color:#c6a34a;
-margin-bottom:20px;
-}
-
-.hero{
-padding:120px 8%;
-text-align:center;
-}
-
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:48px;
-color:#c6a34a;
-margin-bottom:20px;
-}
-
-.hero p{
-max-width:600px;
-margin:0 auto 30px auto;
-color:#555;
-}
-
-.btn{
-display:inline-block;
-padding:14px 40px;
-border:1px solid #c6a34a;
-color:#c6a34a;
-text-decoration:none;
-font-size:14px;
-letter-spacing:1px;
-transition:.3s;
-}
-
-.btn:hover{
-background:#c6a34a;
+background:#000;
 color:#fff;
+font-family:'Montserrat',sans-serif;
+overflow-x:hidden;
+position:relative;
 }
 
-.catalogo{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-margin-top:50px;
+/* Partículas fondo */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
 }
 
-.card{
-border:1px solid #eee;
-padding:40px 25px;
-transition:.4s;
+section{
+padding:100px 20px;
+text-align:center;
 opacity:0;
-transform:translateY(30px);
+transform:translateY(60px);
+transition:1.2s ease;
 }
 
-.card.visible{
+section.visible{
 opacity:1;
 transform:translateY(0);
 }
 
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,.05);
-}
-
-.card h3{
+h1,h2{
 font-family:'Playfair Display',serif;
-color:#c6a34a;
-margin-bottom:10px;
+background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
+background-size:200% auto;
+color:transparent;
+-webkit-background-clip:text;
+animation:shine 6s linear infinite;
+margin-bottom:20px;
 }
 
-.precio{
-font-size:22px;
-margin:20px 0;
+@keyframes shine{
+to{background-position:200% center;}
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.hero h1{
+font-size:50px;
+letter-spacing:4px;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 40px;
+border:1px solid #d4af37;
+color:#d4af37;
+text-decoration:none;
+transition:.4s;
+letter-spacing:1px;
+position:relative;
+overflow:hidden;
+}
+
+.btn:hover{
+background:#d4af37;
 color:#000;
-font-weight:500;
+box-shadow:0 0 20px #d4af37;
 }
 
-#countdown{
-font-size:28px;
-font-weight:600;
-color:#c6a34a;
-letter-spacing:2px;
+.plans{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:1000px;
+margin:auto;
+}
+
+.card{
+border:1px solid #222;
+padding:35px;
+background:rgba(20,20,20,.9);
+transition:.5s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+border:1px solid #d4af37;
+box-shadow:0 0 25px rgba(212,175,55,.4);
+}
+
+.price{
+font-size:30px;
+margin:15px 0;
+color:#d4af37;
+}
+
+.why{
+max-width:800px;
+margin:auto;
+line-height:1.7;
+opacity:.85;
+}
+
+.counter{
+font-size:32px;
+color:#d4af37;
 margin-top:20px;
 }
 
-/* Testimonios */
-.testimonial-slider{
-max-width:700px;
-margin:40px auto 0 auto;
+.testimonials{
+max-width:800px;
+margin:auto;
 position:relative;
 overflow:hidden;
 }
 
 .testimonial{
 display:none;
-animation:fade 1s ease;
+font-style:italic;
+opacity:.85;
 }
 
 .testimonial.active{
 display:block;
-}
-
-.testimonial img{
-width:80px;
-height:80px;
-border-radius:50%;
-margin-bottom:15px;
+animation:fade 1s ease;
 }
 
 .stars{
-color:#c6a34a;
-font-size:18px;
+color:#d4af37;
 margin-bottom:10px;
+font-size:20px;
 }
 
 @keyframes fade{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
+from{opacity:0}
+to{opacity:1}
+}
+
+footer{
+padding:40px;
+text-align:center;
+font-size:13px;
+opacity:.6;
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-<h1>Aura MX</h1>
-<p>Invitaciones digitales elegantes con diseño cinematográfico. Eleva la experiencia de tu evento desde el primer clic.</p>
+<canvas id="particles"></canvas>
+
+<section class="hero visible">
+<h1>AURA MX</h1>
+<p>Invitaciones digitales cinematográficas que dejan huella</p>
 <a href="#planes" class="btn">Ver Planes</a>
 </section>
 
-<section class="section" style="background:#fafafa;">
-<h2 class="section-title">Cupos Limitados Esta Semana</h2>
-<p>Para mantener la calidad premium, solo aceptamos un número reducido de eventos por semana.</p>
-<div id="countdown">Cargando...</div>
-</section>
+<section id="planes">
+<h2>Nuestros Planes</h2>
 
-<section id="planes" class="section">
-<h2 class="section-title">Nuestros Planes</h2>
-
-<div class="catalogo">
-
-<div class="card">
-<h3>Plan Esencial</h3>
-<p>Invitación digital elegante con botón de confirmación.</p>
-<div class="precio">$200 MXN</div>
-<a href="https://mpago.la/23DGSAR" class="btn">Comprar Ahora</a>
-</div>
-
-<div class="card">
-<h3>Plan Básico</h3>
-<p>Incluye música personalizada y animaciones suaves.</p>
-<div class="precio">$300 MXN</div>
-<a href="https://mpago.la/2cwZByR" class="btn">Comprar Ahora</a>
-</div>
-
-<div class="card">
-<h3>Plan Premium</h3>
-<p>Experiencia completa con animaciones avanzadas y diseño exclusivo.</p>
-<div class="precio">$500 MXN</div>
-<a href="https://mpago.la/1xcapFd" class="btn">Comprar Ahora</a>
-</div>
+<div class="plans">
 
 <div class="card">
 <h3>Plan Esencial Solidario</h3>
 <p>Ideal para quienes desean una invitación elegante y funcional, manteniendo una inversión accesible sin sacrificar estilo.</p>
-<div class="precio">$150 MXN</div>
-<a href="https://mpago.la/2tHuvkr" class="btn">Comprar Ahora</a>
+<div class="price">$150 MXN</div>
+<a href="https://mpago.la/2tHuvkr" class="btn">Comprar</a>
+</div>
+
+<div class="card">
+<h3>Plan Esencial</h3>
+<div class="price">$200 MXN</div>
+<a href="#" class="btn">Comprar</a>
+</div>
+
+<div class="card">
+<h3>Plan Básico</h3>
+<div class="price">$300 MXN</div>
+<a href="#" class="btn">Comprar</a>
+</div>
+
+<div class="card">
+<h3>Plan Premium</h3>
+<div class="price">$500 MXN</div>
+<a href="#" class="btn">Comprar</a>
 </div>
 
 </div>
 </section>
 
-<section class="section" style="background:#fafafa;">
-<h2 class="section-title">¿Por qué elegir Aura MX?</h2>
-<p>
-✨ Diseño elegante y moderno<br>
-🎬 Experiencia cinematográfica<br>
-📱 Compatible con cualquier dispositivo<br>
-⚡ Entrega rápida<br>
-🤍 Atención personalizada
-</p>
+<section>
+<h2>¿Por qué elegir Aura MX?</h2>
+<div class="why">
+Creamos experiencias digitales elegantes, modernas y memorables con estética cinematográfica.
+<div class="counter"><span id="count">0</span>+ eventos realizados</div>
+</div>
 </section>
 
-<section class="section">
-<h2 class="section-title">Más de 120 eventos realizados</h2>
+<section>
+<h2>Lo que dicen nuestros clientes</h2>
 
-<div class="testimonial-slider">
+<div class="testimonials">
 
 <div class="testimonial active">
-<img src="https://randomuser.me/api/portraits/women/65.jpg">
-<div class="stars">★★★★★</div>
-<h3>Ana Martínez</h3>
-<p style="color:#777;font-size:13px;">ana.m***@gmail.com</p>
-<p>"La invitación superó nuestras expectativas. Elegante y profesional."</p>
+<div class="stars">⭐⭐⭐⭐⭐</div>
+“Quedó hermosa nuestra invitación. Súper elegante y fácil de compartir.”<br>
+— maria.garcia@email.com
 </div>
 
 <div class="testimonial">
-<img src="https://randomuser.me/api/portraits/men/32.jpg">
-<div class="stars">★★★★★</div>
-<h3>Carlos Herrera</h3>
-<p style="color:#777;font-size:13px;">c.her***@hotmail.com</p>
-<p>"Proceso sencillo y resultado espectacular. Totalmente recomendado."</p>
+<div class="stars">⭐⭐⭐⭐⭐</div>
+“El diseño superó mis expectativas. Atención rápida y profesional.”<br>
+— eventos.luis@email.com
 </div>
 
 <div class="testimonial">
-<img src="https://randomuser.me/api/portraits/women/44.jpg">
-<div class="stars">★★★★★</div>
-<h3>Valeria Gómez</h3>
-<p style="color:#777;font-size:13px;">vale.g***@outlook.com</p>
-<p>"Experiencia premium desde el primer momento. Amamos el resultado."</p>
+<div class="stars">⭐⭐⭐⭐⭐</div>
+“Mis invitados quedaron impactados. Vale totalmente la pena.”<br>
+— carla.xv@email.com
 </div>
 
 </div>
 </section>
 
+<footer>
+© 2026 Aura MX — Invitaciones Digitales Cinematográficas
+</footer>
+
 <script>
-/* Animación aparición */
-const cards = document.querySelectorAll('.card');
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add('visible');
+// Scroll animation
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add("visible");
 }
 });
 });
-cards.forEach(card=>observer.observe(card));
 
-/* Contador */
-function iniciarContador() {
-const ahora = new Date();
-const domingo = new Date();
-domingo.setDate(ahora.getDate() + (7 - ahora.getDay()));
-domingo.setHours(23,59,59,999);
-
-function actualizar() {
-const ahora = new Date().getTime();
-const diferencia = domingo - ahora;
-
-const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
-const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
-const segundos = Math.floor((diferencia / 1000) % 60);
-
-document.getElementById("countdown").innerHTML =
-dias + "d " + horas + "h " + minutos + "m " + segundos + "s ";
-
-if (diferencia < 0) {
-document.getElementById("countdown").innerHTML = "Nuevos cupos disponibles pronto";
+// Contador animado
+let count=0;
+let target=120;
+let counter=document.getElementById("count");
+let interval=setInterval(()=>{
+if(count<target){
+count++;
+counter.textContent=count;
+}else{
+clearInterval(interval);
 }
-}
-setInterval(actualizar, 1000);
-}
-iniciarContador();
+},20);
 
-/* Carrusel automático */
-let index = 0;
-const testimonials = document.querySelectorAll('.testimonial');
-
+// Carrusel testimonios
+let index=0;
+const testimonials=document.querySelectorAll(".testimonial");
 setInterval(()=>{
-testimonials[index].classList.remove('active');
-index = (index + 1) % testimonials.length;
-testimonials[index].classList.add('active');
+testimonials[index].classList.remove("active");
+index=(index+1)%testimonials.length;
+testimonials[index].classList.add("active");
 },4000);
+
+// Partículas
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(212,175,55,.6)";
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
+ctx.fill();
+});
+update();
+}
+
+function update(){
+particles.forEach(p=>{
+p.y+=p.d;
+if(p.y>canvas.height){
+p.y=0;
+p.x=Math.random()*canvas.width;
+}
+});
+}
+
+setInterval(draw,30);
 </script>
 
 </body>
