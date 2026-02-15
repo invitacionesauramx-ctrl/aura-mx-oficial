@@ -1,24 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pago Confirmado | Aura MX</title>
+<title>Gracias por tu compra | Aura MX</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<meta http-equiv="refresh" content="5;url=https://docs.google.com/forms/d/e/1FAIpQLSd3WLToJVX2of4qlbrs5JKx8j30BrTp2WISFw-7taGTYzc9KQ/viewform">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
 background:#ffffff;
+color:#333;
 font-family:'Montserrat',sans-serif;
+text-align:center;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
-text-align:center;
 padding:20px;
 }
 
@@ -31,53 +33,29 @@ font-family:'Playfair Display',serif;
 font-size:42px;
 color:#c6a34a;
 margin-bottom:20px;
+letter-spacing:2px;
 }
 
 p{
+margin-bottom:30px;
 color:#555;
-margin-bottom:25px;
-line-height:1.6;
-}
-
-.highlight{
-color:#c6a34a;
-font-weight:500;
 }
 
 .btn{
-display:inline-block;
-padding:14px 35px;
-margin:10px;
-border-radius:40px;
-text-decoration:none;
-font-weight:500;
-transition:.3s;
-}
-
-.btn-primary{
-background:#c6a34a;
-color:#fff;
-}
-
-.btn-primary:hover{
-background:#a8842e;
-}
-
-.btn-outline{
+padding:14px 40px;
 border:1px solid #c6a34a;
 color:#c6a34a;
+letter-spacing:1px;
+font-size:13px;
+transition:.4s;
+cursor:pointer;
+text-decoration:none;
+display:inline-block;
 }
 
-.btn-outline:hover{
+.btn:hover{
 background:#c6a34a;
 color:#fff;
-}
-
-footer{
-position:absolute;
-bottom:20px;
-font-size:13px;
-color:#aaa;
 }
 </style>
 </head>
@@ -85,34 +63,14 @@ color:#aaa;
 <body>
 
 <div class="container">
-<h1>Pago Confirmado ✨</h1>
+<h1>Pago Confirmado</h1>
+<p>Gracias por confiar en Aura MX.<br>
+En unos segundos serás redirigido para completar los datos de tu evento.</p>
 
-<p>
-Gracias por confiar en <span class="highlight">Aura MX</span>.<br>
-Tu invitación digital está oficialmente en proceso.
-</p>
-
-<p>
-Ahora necesitamos algunos detalles de tu evento para comenzar el diseño.
-</p>
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSd3WLToJVX2of4qlbrs5JKx8j30BrTp2WISFw-7taGTYzc9KQ/viewform"
-   class="btn btn-primary" target="_blank">
-   Completar Datos del Evento
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSd3WLToJVX2of4qlbrs5JKx8j30BrTp2WISFw-7taGTYzc9KQ/viewform" class="btn">
+Completar datos ahora
 </a>
-
-<br>
-
-<a href="https://wa.me/523341024243?text=Hola%20ya%20realicé%20mi%20pago%20y%20quiero%20confirmar%20mi%20invitación"
-   class="btn btn-outline" target="_blank">
-   Confirmar por WhatsApp
-</a>
-
 </div>
-
-<footer>
-Aura MX © 2026
-</footer>
 
 </body>
 </html>
