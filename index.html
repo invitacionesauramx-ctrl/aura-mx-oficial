@@ -18,6 +18,7 @@ overflow-x:hidden;
 position:relative;
 }
 
+/* Partículas */
 canvas{
 position:fixed;
 top:0;
@@ -25,6 +26,7 @@ left:0;
 z-index:-1;
 }
 
+/* Animación secciones */
 section{
 padding:100px 20px;
 text-align:center;
@@ -52,6 +54,7 @@ margin-bottom:20px;
 to{background-position:200% center;}
 }
 
+/* Hero */
 .hero{
 height:100vh;
 display:flex;
@@ -65,6 +68,7 @@ font-size:50px;
 letter-spacing:4px;
 }
 
+/* Botones */
 .btn{
 display:inline-block;
 margin-top:20px;
@@ -82,6 +86,7 @@ color:#000;
 box-shadow:0 0 20px #d4af37;
 }
 
+/* Planes */
 .plans{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -103,49 +108,35 @@ border:1px solid #d4af37;
 box-shadow:0 0 25px rgba(212,175,55,.4);
 }
 
+.card ul{
+list-style:none;
+margin-top:15px;
+line-height:1.8;
+opacity:.85;
+font-size:14px;
+}
+
 .price{
 font-size:30px;
 margin:15px 0;
 color:#d4af37;
 }
 
-.features{
-margin-top:15px;
-list-style:none;
-opacity:.85;
-line-height:1.7;
-font-size:14px;
-}
-
-.features li{
-margin-bottom:6px;
-}
-
-.premium-timer{
-margin-top:20px;
-font-size:14px;
-color:#d4af37;
-letter-spacing:1px;
-}
-
-.timer-box{
-font-size:20px;
-margin-top:8px;
-}
-
-.why{
-max-width:800px;
-margin:auto;
-line-height:1.7;
-opacity:.85;
-}
-
+/* Contador */
 .counter{
 font-size:32px;
 color:#d4af37;
 margin-top:20px;
 }
 
+/* Cuenta regresiva premium */
+.premium-timer{
+margin-top:10px;
+color:#d4af37;
+font-size:14px;
+}
+
+/* Testimonios */
 .testimonials{
 max-width:800px;
 margin:auto;
@@ -175,6 +166,31 @@ from{opacity:0}
 to{opacity:1}
 }
 
+/* WhatsApp */
+.whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:#fff;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+box-shadow:0 0 20px rgba(0,0,0,.4);
+z-index:999;
+transition:.3s;
+text-decoration:none;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px rgba(37,211,102,.7);
+}
+
 footer{
 padding:40px;
 text-align:center;
@@ -202,57 +218,50 @@ opacity:.6;
 <div class="card">
 <h3>Plan Esencial Solidario</h3>
 <p>Ideal para quienes desean una invitación elegante y funcional sin sacrificar estilo.</p>
-<ul class="features">
-<li>✔ Diseño personalizado</li>
-<li>✔ Botón confirmación WhatsApp</li>
-<li>✔ Adaptable a celular</li>
-<li>✔ Entrega rápida</li>
-</ul>
 <div class="price">$150 MXN</div>
+<ul>
+<li>✔ Diseño elegante</li>
+<li>✔ Botón de confirmación</li>
+<li>✔ Enlace personalizado</li>
+<li>✔ Compatible con celular</li>
+</ul>
 <a href="https://mpago.la/2tHuvkr" class="btn">Comprar</a>
 </div>
 
 <div class="card">
 <h3>Plan Esencial</h3>
-<ul class="features">
-<li>✔ Música personalizada</li>
-<li>✔ Galería de fotos</li>
-<li>✔ Confirmación avanzada</li>
-<li>✔ Cuenta regresiva</li>
-</ul>
 <div class="price">$200 MXN</div>
+<ul>
+<li>✔ Todo lo del Solidario</li>
+<li>✔ Sección de cuenta regresiva</li>
+<li>✔ Animaciones suaves</li>
+<li>✔ Confirmación de asistencia</li>
+</ul>
 <a href="https://mpago.la/23DGSAR" class="btn">Comprar</a>
 </div>
 
 <div class="card">
 <h3>Plan Básico</h3>
-<ul class="features">
-<li>✔ Todo lo del Esencial</li>
-<li>✔ Animaciones cinematográficas</li>
-<li>✔ Mapa interactivo</li>
-<li>✔ Sección padrinos</li>
-<li>✔ Botones redes sociales</li>
-</ul>
 <div class="price">$300 MXN</div>
+<ul>
+<li>✔ Todo lo del Esencial</li>
+<li>✔ Música personalizada</li>
+<li>✔ Galería de fotos</li>
+<li>✔ Diseño más dinámico</li>
+</ul>
 <a href="https://mpago.la/2cwZByR" class="btn">Comprar</a>
 </div>
 
-<div class="card" style="border:1px solid #d4af37;box-shadow:0 0 20px rgba(212,175,55,.3);">
+<div class="card">
 <h3>Plan Premium</h3>
-<ul class="features">
-<li>✔ Todo lo del Básico</li>
-<li>✔ Diseño exclusivo cinematográfico</li>
-<li>✔ Video tipo tráiler</li>
-<li>✔ Efectos visuales avanzados</li>
-<li>✔ Soporte prioritario</li>
-</ul>
 <div class="price">$500 MXN</div>
-
-<div class="premium-timer">
-PROMOCIÓN ACTIVA TERMINA EN:
-<div class="timer-box" id="premiumTimer">00d 00h 00m 00s</div>
-</div>
-
+<ul>
+<li>✔ Todo lo del Básico</li>
+<li>✔ Animaciones cinematográficas</li>
+<li>✔ Diseño exclusivo</li>
+<li>✔ Efectos visuales avanzados</li>
+</ul>
+<div class="premium-timer" id="premiumTimer"></div>
 <a href="https://mpago.la/1xcapFd" class="btn">Comprar</a>
 </div>
 
@@ -261,34 +270,32 @@ PROMOCIÓN ACTIVA TERMINA EN:
 
 <section>
 <h2>¿Por qué elegir Aura MX?</h2>
-<div class="why">
-Más de <span id="count">0</span> eventos realizados ✨
-</div>
+<p>✨ Diseño elegante y moderno<br>
+🎬 Experiencia cinematográfica<br>
+📱 Compatible con cualquier dispositivo<br>
+⚡ Entrega rápida<br>
+🤍 Atención personalizada</p>
+<div class="counter"><span id="count">0</span>+ eventos realizados</div>
 </section>
 
 <section>
 <h2>Lo que dicen nuestros clientes</h2>
-
 <div class="testimonials">
-
 <div class="testimonial active">
 <div class="stars">⭐⭐⭐⭐⭐</div>
 “Quedó hermosa nuestra invitación. Súper elegante y fácil de compartir.”<br>
 — maria.garcia@email.com
 </div>
-
 <div class="testimonial">
 <div class="stars">⭐⭐⭐⭐⭐</div>
 “El diseño superó mis expectativas. Atención rápida y profesional.”<br>
 — eventos.luis@email.com
 </div>
-
 <div class="testimonial">
 <div class="stars">⭐⭐⭐⭐⭐</div>
 “Mis invitados quedaron impactados. Vale totalmente la pena.”<br>
 — carla.xv@email.com
 </div>
-
 </div>
 </section>
 
@@ -296,9 +303,13 @@ Más de <span id="count">0</span> eventos realizados ✨
 © 2026 Aura MX — Invitaciones Digitales Cinematográficas
 </footer>
 
+<!-- Botón WhatsApp -->
+<a href="https://wa.me/521XXXXXXXXXX?text=Hola%20quiero%20información%20sobre%20las%20invitaciones%20de%20Aura%20MX"
+class="whatsapp-float" target="_blank">💬</a>
+
 <script>
 
-// Scroll animation
+/* Scroll animation */
 const sections=document.querySelectorAll("section");
 window.addEventListener("scroll",()=>{
 sections.forEach(sec=>{
@@ -308,7 +319,7 @@ sec.classList.add("visible");
 });
 });
 
-// Contador eventos
+/* Contador eventos */
 let count=0;
 let target=120;
 let counter=document.getElementById("count");
@@ -321,7 +332,7 @@ clearInterval(interval);
 }
 },20);
 
-// Carrusel testimonios
+/* Carrusel testimonios */
 let index=0;
 const testimonials=document.querySelectorAll(".testimonial");
 setInterval(()=>{
@@ -330,33 +341,24 @@ index=(index+1)%testimonials.length;
 testimonials[index].classList.add("active");
 },4000);
 
-// Cuenta regresiva Premium (7 días)
-const premiumTimer=document.getElementById("premiumTimer");
-const futureDate=new Date();
-futureDate.setDate(futureDate.getDate()+7);
+/* Cuenta regresiva Premium */
+function premiumCountdown(){
+const end=new Date();
+end.setDate(end.getDate()+3);
 
-function updatePremiumTimer(){
+setInterval(()=>{
 const now=new Date().getTime();
-const distance=futureDate-now;
-
-if(distance<0){
-premiumTimer.innerHTML="Promoción finalizada";
-return;
-}
-
-const days=Math.floor(distance/(1000*60*60*24));
+const distance=end-now;
 const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
 const seconds=Math.floor((distance%(1000*60))/1000);
-
-premiumTimer.innerHTML=
-days+"d "+hours+"h "+minutes+"m "+seconds+"s";
+document.getElementById("premiumTimer").innerHTML=
+"Disponible por tiempo limitado: "+hours+"h "+minutes+"m "+seconds+"s";
+},1000);
 }
+premiumCountdown();
 
-setInterval(updatePremiumTimer,1000);
-updatePremiumTimer();
-
-// Partículas
+/* Partículas */
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
