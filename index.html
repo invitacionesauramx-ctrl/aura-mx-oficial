@@ -3,103 +3,172 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura MX | Invitaciones Digitales</title>
+<title>Aura MX | Invitaciones Cinematográficas</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-font-family:'Poppins',sans-serif;
-background:#fff;
-color:#111;
+background:#000;
+color:#fff;
+font-family:'Montserrat',sans-serif;
 overflow-x:hidden;
+position:relative;
 }
 
-h1,h2,h3{
-font-family:'Playfair Display',serif;
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
 }
 
 section{
-padding:80px 10%;
+padding:100px 20px;
 text-align:center;
+opacity:0;
+transform:translateY(60px);
+transition:1.2s ease;
 }
 
-/* HERO */
-.hero{
-background:#000;
-color:#fff;
-padding:100px 10%;
+section.visible{
+opacity:1;
+transform:translateY(0);
 }
 
-.hero h1{
-font-size:40px;
+h1,h2{
+font-family:'Playfair Display',serif;
+background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
+background-size:200% auto;
+color:transparent;
+-webkit-background-clip:text;
+animation:shine 6s linear infinite;
 margin-bottom:20px;
 }
 
-.hero p{
-opacity:.8;
+@keyframes shine{
+to{background-position:200% center;}
 }
 
-/* BOTONES */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.hero h1{
+font-size:50px;
+letter-spacing:4px;
+}
+
 .btn{
-background:gold;
-color:#000;
-padding:12px 25px;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
 display:inline-block;
+margin-top:20px;
+padding:14px 40px;
+border:1px solid #d4af37;
+color:#d4af37;
+text-decoration:none;
+transition:.4s;
+letter-spacing:1px;
+}
+
+.btn:hover{
+background:#d4af37;
+color:#000;
+box-shadow:0 0 20px #d4af37;
+}
+
+.plans{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:1100px;
+margin:auto;
+}
+
+.card{
+border:1px solid #222;
+padding:35px;
+background:rgba(20,20,20,.9);
+transition:.5s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+border:1px solid #d4af37;
+box-shadow:0 0 25px rgba(212,175,55,.4);
+}
+
+.price{
+font-size:30px;
+margin:15px 0;
+color:#d4af37;
+}
+
+.features{
+margin-top:15px;
+list-style:none;
+opacity:.85;
+line-height:1.7;
+font-size:14px;
+}
+
+.counter{
+font-size:32px;
+color:#d4af37;
 margin-top:20px;
 }
 
-/* TESTIMONIOS */
-.testimonios-wrapper{
+/* ===== TESTIMONIOS NUEVOS ===== */
+
+.testimonials-wrapper{
 overflow:hidden;
-margin-top:40px;
+max-width:1000px;
+margin:auto;
 }
 
-.testimonios{
+.testimonials{
 display:flex;
 gap:30px;
 transition:transform .6s ease;
 }
 
-.testimonio{
+.testimonial{
 min-width:45%;
-background:#fff;
-padding:30px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
+background:rgba(20,20,20,.9);
+border:1px solid #222;
+padding:25px;
+font-style:italic;
 }
 
-.testimonio img{
-width:80px;
-height:80px;
-border-radius:50%;
-object-fit:cover;
-margin-bottom:15px;
-}
-
-.estrellas{
-color:gold;
+.stars{
+color:#d4af37;
 margin-bottom:10px;
 font-size:18px;
 }
 
-/* BOTON REFERENCIA */
 .btn-ref{
-background:gold;
-border:none;
-padding:12px 20px;
-border-radius:30px;
+display:inline-block;
+margin:25px 0;
+padding:12px 35px;
+border:1px solid #d4af37;
+color:#d4af37;
+background:transparent;
 cursor:pointer;
-margin-top:20px;
-font-weight:600;
+transition:.4s;
 }
 
-/* MODAL */
+.btn-ref:hover{
+background:#d4af37;
+color:#000;
+}
+
+/* Modal */
+
 .modal-ref{
 display:none;
 position:fixed;
@@ -107,17 +176,17 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,.6);
+background:rgba(0,0,0,.7);
 justify-content:center;
 align-items:center;
+z-index:1000;
 }
 
 .modal-content-ref{
-background:#fff;
+background:#111;
+border:1px solid #d4af37;
 padding:30px;
-border-radius:15px;
-width:300px;
-text-align:center;
+width:320px;
 }
 
 .modal-content-ref input,
@@ -125,15 +194,15 @@ text-align:center;
 width:100%;
 margin:10px 0;
 padding:10px;
-border-radius:8px;
-border:1px solid #ddd;
+background:#000;
+border:1px solid #333;
+color:#fff;
 }
 
 .modal-content-ref button{
-background:gold;
+background:#d4af37;
 border:none;
 padding:10px 20px;
-border-radius:20px;
 cursor:pointer;
 }
 
@@ -141,137 +210,142 @@ cursor:pointer;
 cursor:pointer;
 display:block;
 margin-top:10px;
-color:red;
+color:#d4af37;
 }
 
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:gold;
-color:#000;
-padding:15px 20px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-box-shadow:0 5px 20px rgba(0,0,0,.3);
-}
-
-/* FOOTER */
 footer{
-background:#000;
-color:#fff;
 padding:40px;
 text-align:center;
-margin-top:60px;
+font-size:13px;
+opacity:.6;
+}
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#d4af37;
+color:#000;
+width:65px;
+height:65px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+text-decoration:none;
+box-shadow:0 0 25px rgba(212,175,55,.7);
+z-index:999;
+transition:.3s;
+}
+
+.whatsapp:hover{
+transform:scale(1.1);
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-<h1>Invitaciones Digitales Cinematográficas</h1>
-<p>Elegancia, tecnología y emoción en un solo enlace.</p>
-<a href="#testimonios" class="btn">Ver Opiniones</a>
+<canvas id="particles"></canvas>
+
+<section class="hero visible">
+<h1>AURA MX</h1>
+<p>Invitaciones digitales cinematográficas que dejan huella</p>
+<a href="#planes" class="btn">Ver Planes</a>
 </section>
 
-<section id="testimonios">
+<section>
 <h2>Lo que dicen nuestros clientes</h2>
-<p style="margin-top:10px;opacity:.7;">Más de 120 eventos realizados ✨</p>
 
-<button id="openForm" class="btn-ref">Deja tu referencia ✨</button>
+<button id="openRef" class="btn-ref">Deja tu referencia ✨</button>
 
-<div class="testimonios-wrapper">
-<div class="testimonios" id="slider">
+<div class="testimonials-wrapper">
+<div class="testimonials" id="slider">
 
-<div class="testimonio">
-<img src="https://i.imgur.com/6VBx3io.png">
-<div class="estrellas">⭐⭐⭐⭐⭐</div>
-<h4>María López</h4>
-<p>Quedamos encantados con nuestra invitación. Súper elegante y profesional.</p>
+<div class="testimonial">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+“Quedó hermosa nuestra invitación. Súper elegante y fácil de compartir.”<br>
+— maria.garcia@email.com
 </div>
 
-<div class="testimonio">
-<img src="https://i.imgur.com/6VBx3io.png">
-<div class="estrellas">⭐⭐⭐⭐⭐</div>
-<h4>Daniel García</h4>
-<p>El diseño fue increíble. Todos nuestros invitados quedaron impresionados.</p>
+<div class="testimonial">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+“La animación quedó mágica, parecía tráiler de película.”<br>
+— paola.navarro@email.com
 </div>
 
-<div class="testimonio">
-<img src="https://i.imgur.com/6VBx3io.png">
-<div class="estrellas">⭐⭐⭐⭐⭐</div>
-<h4>Ana Torres</h4>
-<p>Definitivamente volvería a contratar. Excelente atención y calidad.</p>
+<div class="testimonial">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+“Todo fue súper profesional y muy fácil de compartir.”<br>
+— ricardo.silva@email.com
 </div>
 
 </div>
 </div>
+
 </section>
 
 <footer>
 © 2026 Aura MX — Invitaciones Digitales Cinematográficas
 </footer>
 
+<a href="https://wa.me/523341024243" target="_blank" class="whatsapp">💬</a>
+
 <!-- MODAL -->
 <div id="refModal" class="modal-ref">
 <div class="modal-content-ref">
-<h3>Deja tu referencia</h3>
-<input type="text" id="nombreRef" placeholder="Tu nombre">
-<textarea id="mensajeRef" placeholder="Escribe tu experiencia..."></textarea>
+<h3>Tu experiencia</h3>
+<input type="text" id="refNombre" placeholder="Tu nombre">
+<textarea id="refMensaje" placeholder="Escribe tu opinión..."></textarea>
 <button onclick="guardarReferencia()">Enviar</button>
-<span class="closeRef">&times;</span>
+<span class="closeRef">Cerrar</span>
 </div>
 </div>
-
-<a href="https://wa.me/523341024243" class="whatsapp" target="_blank">
-WhatsApp
-</a>
 
 <script>
+
+// Carrusel infinito
 let index=0;
 const slider=document.getElementById("slider");
 
 function mover(){
+if(slider.children.length<2)return;
 index++;
-if(index>slider.children.length-2){
-index=0;
-}
+if(index>slider.children.length-2){index=0;}
 slider.style.transform=`translateX(-${index*50}%)`;
 }
 setInterval(mover,3000);
 
-/* MODAL */
-const modal=document.getElementById("refModal");
-document.getElementById("openForm").onclick=()=>modal.style.display="flex";
-document.querySelector(".closeRef").onclick=()=>modal.style.display="none";
+// Modal
+const refModal=document.getElementById("refModal");
+document.getElementById("openRef").onclick=()=>refModal.style.display="flex";
+document.querySelector(".closeRef").onclick=()=>refModal.style.display="none";
 
+// Guardar referencias
 function guardarReferencia(){
-const nombre=document.getElementById("nombreRef").value;
-const mensaje=document.getElementById("mensajeRef").value;
+const nombre=document.getElementById("refNombre").value;
+const mensaje=document.getElementById("refMensaje").value;
 
 if(nombre===""||mensaje===""){
 alert("Completa los campos");
 return;
 }
 
-const nuevo=document.createElement("div");
-nuevo.classList.add("testimonio");
-nuevo.innerHTML=`
-<img src="https://i.imgur.com/6VBx3io.png">
-<div class="estrellas">⭐⭐⭐⭐⭐</div>
-<h4>${nombre}</h4>
-<p>${mensaje}</p>
-`;
+let refs=JSON.parse(localStorage.getItem("auraRefs"))||[];
+refs.push({nombre,mensaje});
+localStorage.setItem("auraRefs",JSON.stringify(refs));
 
-slider.appendChild(nuevo);
+const div=document.createElement("div");
+div.classList.add("testimonial");
+div.innerHTML=`<div class="stars">⭐⭐⭐⭐⭐</div>"${mensaje}"<br>— ${nombre}`;
+slider.appendChild(div);
 
-document.getElementById("nombreRef").value="";
-document.getElementById("mensajeRef").value="";
-modal.style.display="none";
+document.getElementById("refNombre").value="";
+document.getElementById("refMensaje").value="";
+refModal.style.display="none";
 }
+
 </script>
 
 </body>
